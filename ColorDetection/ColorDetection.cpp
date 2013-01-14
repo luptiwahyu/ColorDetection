@@ -2,6 +2,7 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 
+
 IplImage* GetGambarThreshold(IplImage* gbrHSV){
 	IplImage* gbrThresh=cvCreateImage(cvGetSize(gbrHSV),IPL_DEPTH_8U,1);
 	cvInRangeS(gbrHSV,cvScalar(170,160,60),cvScalar(180,256,256),gbrThresh);
@@ -9,8 +10,15 @@ IplImage* GetGambarThreshold(IplImage* gbrHSV){
 }
 
 int main(){
-	CvCapture* gambar = cvCaptureFromFile("3d-09-5balls.jpg");
+	// CvCapture* gambar = cvCaptureFromFile("3d-09-5balls.jpg");
 	
+	CvCapture* kamera=0;
+	kamera = cvCaptureFromCAM(0);
+	if(!kamera){
+		printf("kamera gagal");
+		return -1;
+	}
+
 	IplImage* frame=0;
 
 	cvNamedWindow("input", CV_WINDOW_AUTOSIZE);
@@ -18,7 +26,7 @@ int main(){
 
 	while(true){
 
-		frame = cvQueryFrame(gambar);
+		frame = cvQueryFrame(kamera);
 		if(!frame) 
 			break;
 
@@ -38,11 +46,14 @@ int main(){
 		cvReleaseImage(&gbrThresh);
 		cvReleaseImage(&frame);
 		
-		cvWaitKey();
+		int c = cvWaitKey(10);
+
+		if((char)c==27)
+			break;
 	}
 
 	cvDestroyAllWindows();	
-	cvReleaseCapture(&gambar);
+	cvReleaseCapture(&kamera);
 
 	return 0;
 }
