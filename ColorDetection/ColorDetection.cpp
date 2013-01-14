@@ -28,7 +28,7 @@ int main(){
 		IplImage* gbrHSV = cvCreateImage(cvGetSize(frame),IPL_DEPTH_8U,3);
 		cvCvtColor(frame,gbrHSV,CV_BGR2HSV); 
 		IplImage* gbrThresh = GetGambarThreshold(gbrHSV);
-
+//iki
 		cvSmooth(gbrThresh,gbrThresh,CV_GAUSSIAN,3,3);
 
 		cvShowImage("output",gbrThresh);
