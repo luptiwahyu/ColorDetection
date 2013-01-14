@@ -5,7 +5,7 @@
 // mengubah gambar menjadi threshold
 IplImage* GetGambarThreshold(IplImage* gbrHSV){
 	IplImage* gbrThresh=cvCreateImage(cvGetSize(gbrHSV),IPL_DEPTH_8U,1);
-	cvInRangeS(gbrHSV,cvScalar(170,160,60),cvScalar(180,256,256),gbrThresh);
+	cvInRangeS(gbrHSV,cvScalar(170,160,60),cvScalar(180,256,256),gbrThresh); //scalar untuk menunjukan nilai atas dan nilai bawah
 	return gbrThresh;
 }
 
