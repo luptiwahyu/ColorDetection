@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-//#include <opencv/cxcore.h>
 
 IplImage* GetGambarThreshold(IplImage* gbrHSV){
 	IplImage* gbrThresh=cvCreateImage(cvGetSize(gbrHSV),IPL_DEPTH_8U,1);
