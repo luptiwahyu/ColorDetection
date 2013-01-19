@@ -59,6 +59,9 @@ int main(){
 	
 	int i=1;
 	
+	while(1){
+		start = clock();
+	
 	frame = cvQueryFrame(kamera);	
 	if(!frame) return -1;	
 	// create a blank image and assigned to 'imgTracking' which has the same size of original video 
@@ -68,10 +71,7 @@ int main(){
 	cvNamedWindow("input", CV_WINDOW_AUTOSIZE);
 	cvNamedWindow("output", CV_WINDOW_AUTOSIZE);
 
-	while(1){
-		
-		start = clock();
-
+	
 		frame = cvQueryFrame(kamera);
 		if(!frame) 
 			break;
