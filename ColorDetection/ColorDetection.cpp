@@ -98,7 +98,7 @@ int main(){
 		cvReleaseImage(&gbrThresh);
 		cvReleaseImage(&frame);
 		
-		cout << i++ << " " << ((clock()-start) / 16)<< endl;
+		cout << ((clock()-start) / (double) CLOCKS_PER_SEC)<< endl;
 		
 		int c = cvWaitKey(10);
 
