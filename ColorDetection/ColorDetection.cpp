@@ -59,8 +59,8 @@ int main(){
 	
 	int i=1;
 	
-	while(1){
-		start = clock();
+	//while(1){
+		//start = clock();
 	
 	frame = cvQueryFrame(kamera);	
 	if(!frame) return -1;	
@@ -71,7 +71,10 @@ int main(){
 	cvNamedWindow("input", CV_WINDOW_AUTOSIZE);
 	cvNamedWindow("output", CV_WINDOW_AUTOSIZE);
 
-	
+	while(1){
+		
+		start = clock();
+		
 		frame = cvQueryFrame(kamera);
 		if(!frame) 
 			break;
